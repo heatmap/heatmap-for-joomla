@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system" method="upgrade">
+	<name>PLG_SYSTEM_HEATMAP</name>
+	<author>Daycounts.com</author>
+	<authorEmail>info@daycounts.com</authorEmail>
+	<authorUrl>http://www.daycounts.com</authorUrl>
+	<creationDate>Aug. 2014</creationDate>
+	<copyright>Copyright 2014 - HeatMap, Inc - https://heatmap.me/. All rights reserved.</copyright>
+	<license>GNU General Public License</license>
+	<version>0.1.0</version>
+	<description>PLG_SYSTEM_HEATMAP_DESCRIPTION</description>
+	<files>
+		<filename plugin="heatmap">heatmap.php</filename>
+		<folder>elements</folder>
+		<folder>images</folder>
+		<folder>language</folder>
+		<file>index.html</file>
+	</files>
+	<config>
+		<fields name="params" addfieldpath="/plugins/system/heatmap/elements">
+			<fieldset name="basic">
+				<field type="accountcheck" name="accountcheck" default='' label="PLG_HEATMAP_ACCOUNT_STATUS" description="PLG_HEATMAP_ACCOUNT_STATUS_DESC" />
+				<!--field type="text" name="affiliateid" default='' label="PLG_HEATMAP_AFFILIATEID" description="PLG_HEATMAP_AFFILIATEID_DESC" /-->
+				<field type="radio" name="ext_use" default="0" label="PLG_HEATMAP_EXT_USE" description="PLG_HEATMAP_EXT_USE_DESC" class="btn-group btn-group-yesno">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field type="textarea" name="ext_code" default='' label="PLG_HEATMAP_EXT_CODE" description="PLG_HEATMAP_EXT_CODE_DESC" />
+				<field type="bookmarklet" name="bookmarklet" default='' label="PLG_HEATMAP_BOOKMARKLET" description="PLG_HEATMAP_BOOKMARKLET_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+
