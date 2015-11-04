@@ -21,8 +21,12 @@ class JFormFieldBookmarklet extends JFormField {
 
 	public function getInput()	{
 		
-		$link = "<a ondragstart=\"try{event.dataTransfer.setDragImage(this,$(this).width()/2,$(this).height()/2);}catch(e){}\" 
-					href=\"javascript:(function(){var s=document.createElement('script');s.type='text/javascript';s.src='//u.heatmap.it/bookmark.js';(top.document.body || top.document.getElementsByTagName('head')[0]).appendChild(s);})();\" style=\"display:inline-block; padding:0 8px;border-radius:4px;background:#ccc;text-decoration:none;color:#000;font-size:12px;cursor:move;\">
+		$link = "<a 
+					class=\"hasTooltip btn btn-info\"
+					title=\"".Jtext::_('PLG_HEATMAP_BOOKMARKLET_DESC')."\"
+					ondragstart=\"try{event.dataTransfer.setDragImage(this,$(this).width()/2,$(this).height()/2);}catch(e){}\" 
+					href=\"javascript:(function(){var s=document.createElement('script');s.type='text/javascript';s.src='//u.heatmap.it/bookmark.js';(top.document.body || top.document.getElementsByTagName('head')[0]).appendChild(s);})();\" 
+					style=\"cursor:move;\">
 					heatmap
 				</a>";
 		

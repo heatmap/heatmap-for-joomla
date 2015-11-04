@@ -29,7 +29,7 @@ class plgSystemHeatmap extends JPlugin
 		parent::__construct($subject, $config);
 	}
 
-	function onAfterRender() {
+	function onBeforeRender() {
 		
 		//Do not display tag in administrator section
 		$app = JFactory::getApplication();
@@ -56,7 +56,10 @@ class plgSystemHeatmap extends JPlugin
 		if ($this->params->get('ext_use',0)) {
 			$js .= $this->params->get('ext_code','');
 		}
-		if (is_admin_bar_showing()) {
+
+		$isadmin = JFactory::getUser()->authorise('core.admin'); 
+		if ($isadmin) {
+			//Do not record admin user heatmap
 			$js .= 'window.heatmap_ext=window.heatmap_ext||{};window.heatmap_ext.recordDisabled=true;';
 		}
 		$js .= "
@@ -67,6 +70,5 @@ class plgSystemHeatmap extends JPlugin
 			})();
 		";
 		$document->addScriptDeclaration($js );
-
 	}
 }
